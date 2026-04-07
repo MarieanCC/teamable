@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title> My first webpage </title>
+        <link rel="stylesheet" href="style.css"> 
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="Rick Asthley, Cola, first website, learn">
+        <meta name="description" content="article about being Rick Rolled">
+
+        <script src="app.js"> </script>
+        
+    <body> 
+        <div id="header-container">
+            <header>
+                <div id="logo-search-container">
+                    <img id="logo-img" src="proxy-image.png">
+                    <input type="text" placeholder="search..."/>
+                </div>
+                <button onclick="handleCreatePost()"> Create Post</button>
+            </header>
+        </div>
+
+        <div id="post-form-container">
+            <form>
+                <label> <b>Title</b> </label> 
+                <input type="text" placeholder="Enter title" required>
+                <label> <b>Description</b> </label>
+                <input type="text" placeholder="Enter description">
+                <label> <b>Post</b> </label>
+                <textarea placeholder="Enter your post" required>  </textarea>
+                <button id="hide-btn" onclick="hidePostForm()">Hide form</button> 
+                <button id="save-btn"> Save form</button>
+        </div>
+        <div id="main-section-container">  
+            <article> 
+            <img id="main-image-cover" src="sample-image.jpg">
+                <div>
+                    <h1> Rick Rolled you got  </h1> 
+                    <h3>Information about the article</h3>
+                    <p class="article-info"><i>written by: Cosmin Mariean</i> </p>
+                    <p class="article-info"><i>date: 18/11/2025</i></p>
+                </div>    
+                    <div>
+                    <!-- <img id="article cover-img" src="music.png"> -->
+                    
+                    <p>parahraph 1</p>
+                    <p>paragraph 2</p>
+
+                    <h4>header</h4>  
+                    <p>paragraph 1</p>
+
+                    <ul>   
+                    <li>item 1</li>
+                    <li>item 2</li>
+                    <li>item 3</li>
+                    <li>item 4</li>
+                    </ul>
+                    </div>
+                </article> 
+
+            <aside>
+                <div id="side-section">
+                    <h2>Side section</h2>
+                    <h3>Another article title</h3>
+                    <h4>Yet another short info</h4>
+                    <a href="https://gitlab.com/nanuchi/it-beginners-course/-/blob/feature/html-css-js-tutorial/index-html.html">Click here to see article</a>
+                </div>
+
+                <div>
+                    <h2>Another side  section</h2>
+                    <h3>Article title</h3>
+                    <h4>Yet, yet another short info</h4>
+                    <a href="https://dev.to/techworld_with_nana/sre-and-tasks-of-an-sre-explained-3ah9">Click to see article</a>
+                </div>
+            </aside>   
+            
+        </div>
+    </div>
+
+        <footer>
+        <p> Feet</p>
+        </footer>
+
+    </body>
+    </head>
+</html>
+ 
