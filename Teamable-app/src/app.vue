@@ -1,39 +1,39 @@
 <template> 
-    <div id="display-view"> 
+    <div v-show="!isEditMode"> 
             <h1> User profile </h1>  
             <img :src="image">
 
-            <span> Name : </span> <b id="name">Anna Smith</b>
+            <span> Name : </span> <b id="name"> {{ name }} </b>
             <hr /> 
 
-            <span>Email: </span><b id="email">anna.smith@example.com</b>
+            <span>Email: </span><b id="email"> {{ email }} </b>
             <hr />
 
-            <span>Interests: </span><b id="interests">coding</b>
+            <span>Interests: </span><b id="interests"> {{ interests }}</b>
             <hr />
 
             <button @click="handleEditProfile">Edit Profile</button>
         </div>
 
-        <div id="edit-view"> 
+        <div v-show="isEditMode" id="edit-view"> 
             <h1> User profile </h1>  
             <img :src="image">
 
             <span> Name : </span> 
-            <input type="text" id="input-name" placeholder="full name"/>
+            <input type="text" id="input-name" v-model="name"/>
             <hr /> 
 
             <span> Email : </span> 
-            <input type="text" id="input-email" placeholder="your email address"/>
+            <input type="text" id="input-email" v-model="email"/>
             <hr /> 
 
             <span> Interests: </span> 
-            <input type="text" id="input-interests" placeholder= "code, games, books etc"/>
+            <input type="text" id="input-interests" v-model="interests"/>
             <hr /> 
 
             <button @click="handleUpdateProfile"> Update </button>
         </div>
-
+ 
 </template>
 
 <script> 
@@ -42,41 +42,19 @@ export default {
    name: 'App',
    data() {
     return {
-      image: image
+      image: image,
+      name: "Ann Smith",
+      email: "anna.smith@example.com", 
+      interests: "coding",
+        isEditMode: false
     }
    },
    methods: {
         handleEditProfile() {
-        var name = document.getElementById("name").textContent
-        var inputName = document.getElementById("input-name")
-        inputName.value = name
-
-        var email = document.getElementById("email").textContent
-        var inputEmail = document.getElementById("input-email")
-        inputEmail.value = email
-
-        var interests = document.getElementById("interests").textContent
-        var inputInterests = document.getElementById("input-interests")
-        inputInterests.value = interests
-
-        document.getElementById("edit-view").style.display = "block"
-        document.getElementById("display-view").style.display = "none"
+            this.isEditMode = true;
     },
         handleUpdateProfile() {
-        var updatedName = document.getElementById("input-name").value
-        var name = document.getElementById("name")
-        name.textContent = updatedName
-
-        var updatedEmail = document.getElementById("input-email").value
-        var email = document.getElementById("email")
-        email.textContent = updatedEmail
-
-        var updatedInterests = document.getElementById("input-interests").value
-        var interests = document.getElementById("interests")
-        interests.textContent = updatedInterests
-
-        document.getElementById("edit-view").style.display = "none"
-        document.getElementById("display-view").style.display = "block"
+            this.isEditMode = false;
     }
    }
 }
@@ -117,9 +95,5 @@ input {
     width: 200px;
     font-size: 15px;
     padding: 10px; 
-}
-
-#edit-view { 
-    display: none;
 }
 </style>
