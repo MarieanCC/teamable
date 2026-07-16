@@ -2,11 +2,22 @@
 <html> 
 <head>
     <title>Nodejs App</title>
+    <script> 
+        function handleSaveTask() {
+            ulEl = document.getElementById("tasks")
+            inputEl = document.getElementById("task")
+            liEl = document.createElement("li")
+            liEl.textContent = inputEl.value
+            ulEl.appendChild(liEl)
+        }
+    </script>
 </head>
 </html>
 
 <body>
     <label> Add Task</label>
-    <input type="text" placeholder="new task"/>
-    <button> Save </button> 
+    <input id="task" type="text" placeholder="new task"/>
+    <button onclick="handleSaveTask()" >Save</button> 
+
+    <ul id="tasks"></ul>
 </body> 
