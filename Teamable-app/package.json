@@ -5,7 +5,8 @@
     "@vue/cli-service": "5.0.8",
     "@vue/compiler-sfc": "3.2.40",
     "core-js": "^2.6.12",
-    "vue": "3.2.40"
+    "vue": "3.2.40",
+    "express": "^5.2.1"
   },
   "scripts": {
     "serve": "vue-cli-service serve"
