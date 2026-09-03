@@ -9,6 +9,8 @@
     "express": "^5.2.1"
   },
   "scripts": {
-    "serve": "vue-cli-service serve"
+    "serve": "vue-cli-service serve",
+    "build":  "vue-cli-service build",
+    "start": "node server.js"
   }
 }
