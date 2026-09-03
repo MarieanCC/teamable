@@ -43,11 +43,17 @@ export default {
    data() {
     return {
       image: image,
-      name: "Ann Smith",
-      email: "anna.smith@example.com", 
-      interests: "coding",
+      name: "",
+      email: "", 
+      interests: "",
         isEditMode: false
     }
+   },
+   async created() {
+       const userData = await this.fetchUserProfile()
+        this.name = userData.name
+        this.email = userData.email
+        this.interests = userData.interests
    },
    methods: {
         handleEditProfile() {
@@ -55,8 +61,12 @@ export default {
     },
         handleUpdateProfile() {
             this.isEditMode = false;
-    }
+    },
+    async fetchUserProfile() {
+           const res = await fetch('/get-profile')
+        return await res.json()
    }
+       }
 }
 </script>
 
