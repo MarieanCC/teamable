@@ -59,13 +59,31 @@ export default {
         handleEditProfile() {
             this.isEditMode = true;
     },
-        handleUpdateProfile() {
+        async handleUpdateProfile() {
+            const payload = {
+                name: this.name,
+                email: this.email,
+                interests: this.interests
+            }
+            const resJson = await this.updateUserprofile(payload)
+            console.log(resJson)
             this.isEditMode = false;
     },
     async fetchUserProfile() {
            const res = await fetch('/get-profile')
         return await res.json()
-   }
+   },
+    async updateUserprofile(payload) {
+        const res = await fetch('update-profile', {
+            method: "POST", 
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        return await res.json()
+    }
        }
 }
 </script>

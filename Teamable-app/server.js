@@ -17,6 +17,19 @@ app.get('/get-profile', function(req, res) {
   res.send(response)
 })
 
+app.post('/update-profile', function(req, res) {
+  const payload = req.body
+  console.log(payload)
+  if (!payload || Object.keys(payload).length === 0) {
+    res.status(400).send({error: "empty payload. Couldn't update user profile data"})
+  } else {
+    // updating user profile
+    res.status(200).send({info: "user profile data updated successfully"})
+  }
+  // saving payload into database 
+
+  res.send({info: "user profile data updated successfully"})
+})
 app.listen(3000, function () {
   console.log('app listening on port 3000!')
 }) 
