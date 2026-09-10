@@ -15,18 +15,36 @@ app.use(bodyParser.json())
 app.use('/', express.static(path.join(__dirname, '/dist')))
 
 app.get('/get-profile', async function(req, res) {
-  const response = {
-    name: "Anna Smith",
-    email: "anna.smith@example.com",
-    interests: "coding"
-  }
+    // connect to mongodb database
+    await client.connect()
+    console.log('Connected successfully to server')
 
 // connect to db 
 await client.connect()
 console.log('Connected successfully to server')
-// get data from database 
+
+  // initiates or get the database  & collection
+  const db =client.db(dbName)
+  const collection = db.collection(colName) 
+
+
+  // get data from database 
+  const result = await collection.findOne({id: 1})
+  console.log(result)
+  client.close()
+
+  response = {}
+
+  if (result !== null) {
+       response = {
+          name : result.name,
+         email: result.email,
+          interests: result.interests
+      } 
+  }
 
   res.send(response)
+
 })
 
 app.post('/update-profile', async function(req, res) {
@@ -41,9 +59,10 @@ app.post('/update-profile', async function(req, res) {
     await client.connect()
     console.log('Connected successfully to server')
 
-    // initiates the database  
+    // initiates or get the database  & collection
     const db =client.db(dbName)
     const collection = db.collection(colName) 
+
     // save payload data to the database 
     payload['id'] = 1
     const updatedValues = {$set: payload}
