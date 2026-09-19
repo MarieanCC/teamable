@@ -20,7 +20,6 @@ test("test request with valid payload", async function() {
     server.close()
 })
 
-
 test("test request with invalid payload", async function() {
     const testPayload = { }
     const response =  await request(app)
