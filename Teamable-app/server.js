@@ -75,8 +75,11 @@ app.post('/update-profile', async function(req, res) {
 
     res.send({info: "user profile data updated successfully"})
 })
-app.listen(3000, function () {
+const server = app.listen(3000, function () {
   console.log('app listening on port 3000!')
 }) 
 
-module.exports = app
+module.exports = {
+  app,
+  server
+}
