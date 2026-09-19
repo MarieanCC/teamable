@@ -7,11 +7,14 @@
     "core-js": "^2.6.12",
     "vue": "3.2.40",
     "express": "^5.2.1",
-    "mongodb": "^5.7.0"
-  },
+    "mongodb": "^5.7.0",
+    "jest": "^29.6.1",
+    "supertest": "^6.3.3"
+   },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest"
   }
 }
